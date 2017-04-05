@@ -3,10 +3,12 @@ defmodule RelaxLib.Mixfile do
 
   def project do
     [app: :relax_lib,
-     version: "0.1.0",
+     version: "0.1.1",
      elixir: "~> 1.4",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
+     description: description(),
+     package: package(),
      deps: deps()]
   end
 
@@ -34,6 +36,19 @@ defmodule RelaxLib.Mixfile do
     [
       {:ex_doc, ">= 0.0.0", only: :dev},
       {:timex, "~> 3.0"}
+    ]
+  end
+
+  defp description do
+    "Relax Lib with some tools"
+  end
+
+  defp package do
+    [
+      files: ["lib", "mix.exs", "README*", "CHANGELOG*", "LICENSE*"],
+      maintainers: ["happy"],
+      licenses: ["MIT"],
+      links: %{"GitHub" => "https://github.com/gialib/relax_lib"}
     ]
   end
 end
